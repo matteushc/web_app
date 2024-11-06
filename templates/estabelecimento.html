@@ -1,0 +1,73 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+  <!-- Example row of columns -->
+  <form action="/save/" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="nipcc">Nipcc</label>
+      <input type="text" class="form-control" id="nipcc" aria-describedby="nipccHelp" placeholder="Enter Nipcc" name="nipcc">
+      <small id="nipccHelp" class="form-text text-muted">We'll never share</small>
+    </div>
+    <div class="form-group">
+      <label for="denominacao">Denominacao</label>
+      <input type="text" class="form-control" id="denominacao" placeholder="Enter Denominacao" name="denominacao">
+    </div>
+    <div class="form-group">
+      <label for="cep">Sede cep</label>
+      <input type="text" class="form-control" id="cep" placeholder="Sede cep" name="sede_cep">
+    </div>
+    <div class="form-group">
+      <label for="endereco">Sede endereco</label>
+      <input type="text" class="form-control" id="endereco" placeholder="Sede endereco" name="sede_endereco">
+    </div>
+    <div class="form-group">
+      <label for="intervencao">Cep intervencao</label>
+      <input type="text" class="form-control" id="intervencao" placeholder="Cep intervencao" name="cep_intervencao">
+    </div>
+    <div class="form-group">
+      <label for="endintervencao">End intervencao</label>
+      <input type="text" class="form-control" id="endintervencao" placeholder="End intervencao" name="end_intervencao">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input type="text" class="form-control" id="senha" placeholder="Senha" name="senha">
+    </div>
+    <div class="form-group">
+      <label for="confsenha">Confirmacao senha</label>
+      <input type="text" class="form-control" id="confsenha" placeholder="Confirmacao senha" name="confirmacao_senha">
+    </div>
+    <div class="form-group">
+      <label for="atividade">Atividade</label>
+      <input type="text" class="form-control" id="atividade" placeholder="Atividade" name="atv_id">
+    </div>
+    <div class="form-group">
+      <label for="objeto">Objeto</label>
+      <input type="text" class="form-control" id="objeto" placeholder="Objeto" name="obj_id">
+    </div>
+    <div class="form-group">
+      <label for="cidade">Cidade</label>
+      <input type="text" class="form-control" id="cidade" placeholder="Cidade" name="cid_id">
+    </div>
+    <div class="form-group">
+      <label for="distrito">Distrito</label>
+      <input type="text" class="form-control" id="distrito" placeholder="Distrito" name="dst_id">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <hr>
+
+</div>
+
+{% endblock %}

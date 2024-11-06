@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views import generic
-from django.http import HttpResponse
 from .forms import NameForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
@@ -10,7 +9,7 @@ import requests
 # Create your views here.
 
 
-class loginView(generic.TemplateView):
+class LoginView(generic.TemplateView):
 
     def get(self,request):
         return render(request,'login.html')
@@ -38,6 +37,7 @@ def send_login(request):
                     user = User.objects.get(username=form.cleaned_data['username'])
                 except ObjectDoesNotExist:
                     user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['username'], form.cleaned_data['password'])
+                request.session["token"] = authentication_json.get('token')
                 login(request, user)
                 return render(request,'home.html')
             else:
